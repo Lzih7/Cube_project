@@ -1,0 +1,122 @@
+/* 魔方容器 */
+.cube-container {
+  perspective: 1000px;
+  width: 200px;
+  height: 200px;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-25deg) rotateY(-40deg);
+  transition: transform 0.3s ease;
+}
+
+/* 小方块 */
+.cubie {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+/* 小方块的面 */
+.face {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border: 2px solid #000;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  backface-visibility: visible;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* 各个面的3D位置 */
+.face-up {
+  transform: rotateX(90deg) translateZ(25px);
+}
+
+.face-down {
+  transform: rotateX(-90deg) translateZ(25px);
+}
+
+.face-front {
+  transform: translateZ(25px);
+}
+
+.face-back {
+  transform: rotateY(180deg) translateZ(25px);
+}
+
+.face-left {
+  transform: rotateY(-90deg) translateZ(25px);
+}
+
+.face-right {
+  transform: rotateY(90deg) translateZ(25px);
+}
+
+/* 控制面板 */
+.control-panel {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+}
+
+.control-panel h3 {
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.move-button {
+  padding: 0.75rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.move-button:hover {
+  background: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.move-button:active {
+  transform: translateY(0);
+}
+
+.instructions {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.instructions p {
+  margin: 0;
+}
