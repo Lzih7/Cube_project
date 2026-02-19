@@ -21,14 +21,14 @@ export function initializeCube() {
   
   // 遍历所有可能的 x, y, z 坐标
   for (let x = -1; x <= 1; x++) {
-    cube[x] = [];
+    cube[x + 1] = [];
     for (let y = -1; y <= 1; y++) {
-      cube[x][y] = [];
+      cube[x + 1][y + 1] = [];
       for (let z = -1; z <= 1; z++) {
         // 对于每个小方块，判断其是否处于魔方的表面
         // 如果处于表面，则给对应的面赋予初始颜色
         // 内部面的颜色设为 null
-        cube[x][y][z] = {
+        cube[x + 1][y + 1][z + 1] = {
           up: y === 1 ? COLORS.UP : null,       // 顶层 (y=1)
           down: y === -1 ? COLORS.DOWN : null,  // 底层 (y=-1)
           front: z === 1 ? COLORS.FRONT : null, // 前层 (z=1)

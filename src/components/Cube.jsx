@@ -12,7 +12,7 @@ export default function Cube({ cube }) {
   for (let x = -1; x <= 1; x++) {
     for (let y = -1; y <= 1; y++) {
       for (let z = -1; z <= 1; z++) {
-        const cubie = cube[x][y][z];
+        const cubie = cube[x + 1][y + 1][z + 1];
         cubies.push(
           <Cubie
             key={`${x}-${y}-${z}`} // 使用坐标作为唯一key

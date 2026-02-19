@@ -73,7 +73,7 @@ function rotateLayer(cube, positions, axis, direction = 1) {
   const tempData = {};
   positions.forEach(pos => {
     const { x, y, z } = pos;
-    tempData[`${x},${y},${z}`] = { ...cube[x][y][z] };
+    tempData[`${x},${y},${z}`] = { ...cube[x + 1][y + 1][z + 1] };
   });
   
   // 第二步：将每个小方块移动到新位置，并旋转其颜色
@@ -87,7 +87,7 @@ function rotateLayer(cube, positions, axis, direction = 1) {
     // 但是 rotateCubieColors 是基于"源小方块"的颜色进行旋转。
     // 所以我们将源位置(tempData)的小方块取出，旋转颜色后，放入新位置(newCube)。
     
-    newCube[newX][newY][newZ] = rotateCubieColors(
+    newCube[newX + 1][newY + 1][newZ + 1] = rotateCubieColors(
       tempData[`${x},${y},${z}`],
       axis
     );
@@ -96,8 +96,8 @@ function rotateLayer(cube, positions, axis, direction = 1) {
     // 当前 rotateCubieColors 只支持顺时针。
     // 为了支持逆时针，简单的做法是调用3次顺时针旋转。
     if (direction === -1) {
-      newCube[newX][newY][newZ] = rotateCubieColors(newCube[newX][newY][newZ], axis);
-      newCube[newX][newY][newZ] = rotateCubieColors(newCube[newX][newY][newZ], axis);
+      newCube[newX + 1][newY + 1][newZ + 1] = rotateCubieColors(newCube[newX + 1][newY + 1][newZ + 1], axis);
+      newCube[newX + 1][newY + 1][newZ + 1] = rotateCubieColors(newCube[newX + 1][newY + 1][newZ + 1], axis);
     }
   });
   
