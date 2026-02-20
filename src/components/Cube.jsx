@@ -15,7 +15,7 @@ export default function Cube({ cube }) {
         const cubie = cube[x + 1][y + 1][z + 1];
         cubies.push(
           <Cubie
-            key={`${x}-${y}-${z}`} // 使用坐标作为唯一key
+            key={`${x + 1}-${y + 1}-${z + 1}`} // 使用坐标作为唯一key
             position={{ x, y, z }} // 传递位置信息
             colors={cubie}         // 传递该小方块6个面的颜色信息
           />

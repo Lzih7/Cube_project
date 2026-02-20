@@ -37,7 +37,7 @@ function App() {
         <ControlPanel onMove={handleMove} />
       </div>
       <div className="info-panel">
-        <p>历史操作: {moveHistory.join(' ') || '(无)'}</p>
+        {/*<p>历史操作: {moveHistory.join(' ') || '(无)'}</p>*/}
         <div className="button-group">
           <button className="action-button shuffle-button" onClick={handleShuffle}>
             随机打乱

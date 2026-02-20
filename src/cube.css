@@ -3,6 +3,7 @@
   perspective: 1000px;
   width: 200px;
   height: 200px;
+  margin-top: 3rem;
 }
 
 .cube {
@@ -79,6 +80,24 @@
   text-align: center;
 }
 
+.move-section {
+  margin-bottom: 1.5rem;
+}
+
+.move-section h4 {
+  margin: 0 0 0.75rem 0;
+  color: #555;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.move-section:last-of-type {
+  margin-bottom: 0;
+}
+
 .button-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -109,6 +128,16 @@
   transform: translateY(0);
 }
 
+.whole-cube-button {
+  background: #ff9800;
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+}
+
+.whole-cube-button:hover {
+  background: #f57c00;
+  box-shadow: 0 6px 16px rgba(255, 152, 0, 0.4);
+}
+
 .instructions {
   text-align: center;
   color: #666;
@@ -119,4 +148,11 @@
 
 .instructions p {
   margin: 0;
+}
+
+.instructions .note {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #888;
+  font-size: 0.85rem;
 }

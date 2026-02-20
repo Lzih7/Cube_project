@@ -201,9 +201,72 @@ export function rotateRIGHT(cube, clockwise = true) {
 }
 
 /**
+ * 整体魔方绕X轴旋转 (X - 整个魔方绕X轴)
+ * 相当于所有小方块同时绕X轴旋转
+ * @param {Array} cube - 当前魔方状态
+ * @param {boolean} clockwise - 是否顺时针（默认true）
+ */
+export function rotateX(cube, clockwise = true) {
+  const allCubies = [];
+  
+  // 收集所有小方块
+  for (let x = -1; x <= 1; x++) {
+    for (let y = -1; y <= 1; y++) {
+      for (let z = -1; z <= 1; z++) {
+        allCubies.push({ x, y, z });
+      }
+    }
+  }
+  
+  return rotateLayer(cube, allCubies, 'x', clockwise ? 1 : -1);
+}
+
+/**
+ * 整体魔方绕Y轴旋转 (Y - 整个魔方绕Y轴)
+ * 相当于所有小方块同时绕Y轴旋转
+ * @param {Array} cube - 当前魔方状态
+ * @param {boolean} clockwise - 是否顺时针（默认true）
+ */
+export function rotateY(cube, clockwise = true) {
+  const allCubies = [];
+  
+  // 收集所有小方块
+  for (let x = -1; x <= 1; x++) {
+    for (let y = -1; y <= 1; y++) {
+      for (let z = -1; z <= 1; z++) {
+        allCubies.push({ x, y, z });
+      }
+    }
+  }
+  
+  return rotateLayer(cube, allCubies, 'y', clockwise ? 1 : -1);
+}
+
+/**
+ * 整体魔方绕Z轴旋转 (Z - 整个魔方绕Z轴)
+ * 相当于所有小方块同时绕Z轴旋转
+ * @param {Array} cube - 当前魔方状态
+ * @param {boolean} clockwise - 是否顺时针（默认true）
+ */
+export function rotateZ(cube, clockwise = true) {
+  const allCubies = [];
+  
+  // 收集所有小方块
+  for (let x = -1; x <= 1; x++) {
+    for (let y = -1; y <= 1; y++) {
+      for (let z = -1; z <= 1; z++) {
+        allCubies.push({ x, y, z });
+      }
+    }
+  }
+  
+  return rotateLayer(cube, allCubies, 'z', clockwise ? 1 : -1);
+}
+
+/**
  * 执行转动操作
  * @param {Array} cube - 当前魔方状态
- * @param {string} move - 转动指令，如 'U', "U'", 'R', "R'"
+ * @param {string} move - 转动指令，如 'U', "U'", 'R', "R'", 'X', "X'"
  * 带有 ' 的指令表示逆时针
  */
 export function executeMove(cube, move) {
@@ -216,6 +279,9 @@ export function executeMove(cube, move) {
     case 'B': return rotateBACK(cube, direction);
     case 'L': return rotateLEFT(cube, direction);
     case 'R': return rotateRIGHT(cube, direction);
+    case 'X': return rotateX(cube, direction);
+    case 'Y': return rotateY(cube, direction);
+    case 'Z': return rotateZ(cube, direction);
     default: return cube;
   }
 }
@@ -227,7 +293,7 @@ export function executeMove(cube, move) {
  * @returns {Object} { cube: newCube, moves: [] } - 返回打乱后的魔方和打乱步骤
  */
 export function scrambleCube(cube, steps = 20) {
-  const moves = ['U', "U'", 'D', "D'", 'F', "F'", 'B', "B'", 'L', "L'", 'R', "R'"];
+  const moves = ['U', "U'", 'D', "D'", 'F', "F'", 'B', "B'", 'L', "L'", 'R', "R'", 'X', "X'", 'Y', "Y'", 'Z', "Z'"];
   let currentCube = cube;
   const scrambleMoves = [];
   

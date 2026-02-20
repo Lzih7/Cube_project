@@ -33,7 +33,7 @@ h1 {
 .main-content {
   display: flex;
   gap: 3rem;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
 }
